@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萬書維 - 個人自我介紹 | 台南應用科技大學 · 賽車遊戲愛好者</title>
+  <meta name="description" content="萬書維的個人介紹網站，目前就讀台南應用科技大學，熱愛賽車遊戲與競速挑戰。">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 賽車頂部賽道進度條 (Race Track Scroll Bar) -->
+  <div class="race-track-progress" aria-hidden="true">
+    <div class="race-track-fill" id="raceTrackFill">
+      <div class="race-car-indicator" id="raceCarIndicator">🏎️</div>
+    </div>
+  </div>
+
+  <!-- 賽車黑白格旗飾條 -->
+  <div class="racing-checkered-bar"></div>
+
+  <!-- 即時修改提示列 (Editable Notice Bar) -->
+  <div class="edit-hint-banner" id="editHintBanner">
+    <div class="edit-hint-text">
+      <span>💡</span>
+      <span><strong>提示：</strong>本網站已為您填好基本資料，其餘項目均預留留白。點擊右方「開啟網頁直接修改模式」，即可直接點選文字修改！</span>
+    </div>
+    <div class="edit-hint-actions">
+      <button type="button" class="btn-edit-mode" id="btnToggleEdit">
+        <span>✏️</span>
+        <span id="editBtnText">開啟網頁直接修改模式</span>
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" id="btnExportHtml" style="display: none;">
+        <span>💾</span> 儲存修改後網頁
+      </button>
+    </div>
+  </div>
+
+  <!-- 頂部導覽列 (Site Header) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- 品牌 / 姓名標誌 -->
+      <a href="#hero" class="brand-logo">
+        <span class="brand-badge">DRIVER #01</span>
+        <div class="brand-text-wrap">
+          <span class="brand-title ph" data-field="brand-name">萬書維 (Shu-Wei)</span>
+          <span class="brand-status">
+            <span class="status-dot"></span>
+            <span class="ph" data-field="school-status">台南應用科技大學 · 就讀中</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- 導覽連結 -->
+      <nav aria-label="主要導覽">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#about" class="nav-link">關於我</a></li>
+          <li><a href="#racing-games" class="nav-link">賽車遊戲庫</a></li>
+          <li><a href="#campus-life" class="nav-link">校園與日常</a></li>
+          <li><a href="#contact" class="nav-link">聯絡與社群</a></li>
+        </ul>
+      </nav>
+
+      <!-- 操作按鈕 -->
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="切換深色/淺色主題" aria-label="切換主題">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="btnPrintResume" title="列印或儲存個人介紹 A4 PDF">
+          <span>🖨️</span>
+          <span>列印介紹 / PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO 區塊 (個人形象與核心介紹)
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- 左側：姓名、學生與車手身份、自我陳述 -->
+        <div class="hero-text-col">
+          <!-- 賽車起跑燈號 -->
+          <div class="f1-start-lights" title="Racing Lights">
+            <span class="light-dot red"></span>
+            <span class="light-dot red"></span>
+            <span class="light-dot red"></span>
+            <span class="light-dot red"></span>
+            <span class="light-dot red"></span>
+            <span class="light-label">SPEED & PASSION</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span>你好，我是</span><br>
+            <span class="gradient-text ph" data-field="full-name">萬書維</span>
+          </h1>
+
+          <div class="hero-subtitle">
+            <span>🏎️</span>
+            <span class="ph" data-field="personal-tag">台南應用科技大學 學生 · 賽車遊戲熱血玩家</span>
+          </div>
+
+          <p class="hero-description ph" data-field="hero-bio">
+            平時熱衷於各類賽車模擬遊戲，享受在賽道上追求完美進彎點（Apex）與追求單圈極限的快感！個性樂觀隨和、做事專注且有毅力。<br>
+            [這裡可留白自由填寫補充：例如您喜歡的車型、平日生活消遣或未來想學習的領域...]
+          </p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">
+              <span>👤</span>
+              <span class="ph" data-field="btn-about-text">認識我更多</span>
+            </a>
+            <a href="#racing-games" class="btn btn-secondary">
+              <span>🎮</span>
+              <span class="ph" data-field="btn-games-text">查看常玩的賽車遊戲</span>
+            </a>
+            <button type="button" class="btn btn-outline" id="btnCopyEmailHero">
+              <span>📋</span>
+              <span id="heroEmailText">複製聯絡資訊</span>
+            </button>
+          </div>
+
+          <!-- 賽車玩家數值儀表 (Gamer Telemetry Stats) -->
+          <div class="telemetry-stats-bar">
+            <div class="telemetry-stat">
+              <div class="telemetry-val">
+                <span class="ph" data-field="stat-school">台南</span>
+                <small>TUT</small>
+              </div>
+              <div class="telemetry-lbl ph" data-field="stat-school-lbl">應用科技大學</div>
+            </div>
+
+            <div class="telemetry-stat">
+              <div class="telemetry-val">
+                <span class="ph" data-field="stat-game-hours">[500+]</span>
+                <small>HRS</small>
+              </div>
+              <div class="telemetry-lbl ph" data-field="stat-game-lbl">[賽道遊戲時數]</div>
+            </div>
+
+            <div class="telemetry-stat">
+              <div class="telemetry-val">
+                <span class="ph" data-field="stat-gender">男</span>
+                <small>MALE</small>
+              </div>
+              <div class="telemetry-lbl ph" data-field="stat-gender-lbl">生理性別</div>
+            </div>
+
+            <div class="telemetry-stat">
+              <div class="telemetry-val">
+                <span class="ph" data-field="stat-lap">100%</span>
+                <small>FOCUS</small>
+              </div>
+              <div class="telemetry-lbl ph" data-field="stat-lap-lbl">賽道專注熱情</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 右側：個人形象照展示與互動轉速表 -->
+        <div class="hero-racecar-card">
+          <!-- 個人肖像與賽車標籤 -->
+          <div class="racecar-media-box">
+            <img src="assets/images/wan-avatar.jpg" alt="萬書維 個人形象照" class="racecar-media-img">
+            <div class="racecar-badge-overlay">
+              <span>🏁</span> 萬書維 (Shu-Wei Wan)
+            </div>
+          </div>
+
+          <!-- 互動式賽車轉速表儀表板 (Interactive Tachometer Widget) -->
+          <div class="tachometer-card">
+            <div class="tachometer-display">
+              <div class="tachometer-icon-box">
+                <img src="assets/images/racing-telemetry.jpg" alt="賽車遙測儀表">
+              </div>
+              <div class="rpm-counter">
+                <div class="rpm-value" id="rpmDisplay">3,500 <span style="font-size: 0.75rem; color: var(--accent-primary);">RPM</span></div>
+                <div class="rpm-label">GEAR 4 · SPEED 297 KM/H</div>
+                <!-- 轉速換檔 LED 燈號 -->
+                <div class="rpm-led-bar" id="rpmLedBar">
+                  <span class="led green on"></span>
+                  <span class="led green on"></span>
+                  <span class="led yellow on"></span>
+                  <span class="led yellow on"></span>
+                  <span class="led red"></span>
+                  <span class="led red"></span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-gas-pedal" id="btnRevEngine" title="點擊拉高轉速測試引擎聲浪！">
+              🔥 踩油門！
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       關於我與基本資料 (About Me)
+       ======================================================================== -->
+  <section class="section-padding-alt" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge-wrap">
+          <span class="badge">
+            <span>👤</span> 個人簡介
+          </span>
+        </div>
+        <h2 class="section-title ph" data-field="about-title">關於我 · 基本檔案</h2>
+        <p class="section-subtitle ph" data-field="about-subtitle">
+          保持熱情與專注，在學業與興趣中全力奔馳
+        </p>
+      </div>
+
+      <div class="highlights-grid">
+        <!-- 基本資訊卡片 1 -->
+        <div class="highlight-card">
+          <div class="card-icon-box">🎓</div>
+          <h3>現階段就讀</h3>
+          <p class="ph" data-field="about-school">
+            <strong>學校：</strong>台南應用科技大學 (Tainan University of Technology)<br>
+            <strong>就讀科系：</strong><span class="ph" data-field="user-major">[請在此填寫您的科系：例如 多媒體動畫系 / 視覺傳達設計系 / 資訊管理系]</span><br>
+            <strong>目前年級：</strong><span class="ph" data-field="user-grade">[例如：大二 / 大三]</span>
+          </p>
+        </div>
+
+        <!-- 基本資訊卡片 2 -->
+        <div class="highlight-card">
+          <div class="card-icon-box">🏎️</div>
+          <h3>核心興趣：賽車遊戲</h3>
+          <p class="ph" data-field="about-hobby">
+            <strong>最愛類型：</strong>模擬競速（Sim Racing）、街機公路奔馳、F1 方程式。<br>
+            <strong>熱愛原因：</strong>沉浸在引擎聲浪與速度感中，磨練極限反應速度與微操專注度。<br>
+            <strong>遊玩設備：</strong><span class="ph" data-field="user-rig">[例如：PC 電競主機 / PS5 / 方向盤或菁英手把]</span>
+          </p>
+        </div>
+
+        <!-- 基本資訊卡片 3 -->
+        <div class="highlight-card">
+          <div class="card-icon-box">🌟</div>
+          <h3>個人特質與性格</h3>
+          <p class="ph" data-field="about-personality">
+            [請填寫您的個性特質，例如：熱情開朗、好奇心強、喜歡探索新科技與新遊戲，面對有挑戰的事物會像賽車跑單圈一樣不斷嘗試並突破自我。]
+          </p>
+        </div>
+
+        <!-- 基本資訊卡片 4 -->
+        <div class="highlight-card">
+          <div class="card-icon-box">🎯</div>
+          <h3>近期目標與期待</h3>
+          <p class="ph" data-field="about-goals">
+            [請填寫近期的個人目標，例如：在台南應大充實大學生活、精進專案能力、結交志同道合的好友，並挑戰更高等級的線上賽車競速聯賽！]
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       我最常玩的賽車遊戲庫 (Favorite Racing Games)
+       ======================================================================== -->
+  <section class="section-padding" id="racing-games">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge-wrap">
+          <span class="badge badge-racing">
+            <span>🎮</span> GAME GARAGE
+          </span>
+        </div>
+        <h2 class="section-title ph" data-field="games-title">我最熱愛的賽車遊戲清單</h2>
+        <p class="section-subtitle ph" data-field="games-subtitle">
+          以下為我平時最常玩或最喜歡的競速作品，名稱與心得都可以直接點選修改！
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- 賽車遊戲 1 -->
+        <div class="project-card">
+          <div class="project-img-box">
+            <img src="assets/images/racing-hero.jpg" alt="極限競速賽車" class="project-img">
+            <div class="project-badge-overlay">
+              <span class="badge badge-racing">Open World Racing</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">Forza Horizon</span>
+              <span class="project-tag">極限競速</span>
+              <span class="project-tag">公路馳騁</span>
+              <span class="project-tag">跑車改裝</span>
+            </div>
+            <h3 class="project-title ph" data-field="game1-title">Forza Horizon (地平線系列)</h3>
+            <p class="project-desc ph" data-field="game1-desc">
+              最喜歡其廣闊壯麗的開放世界地圖與高自由度調校改裝系統。無論是深夜山道甩尾過彎，或是沿著海岸線高速巡航，都讓人身心徹底放鬆！
+            </p>
+            <div class="project-footer">
+              <span class="badge">最常駕駛：GT3 系列跑車 / 日系 JDM</span>
+              <span class="project-link-btn" style="cursor: default;">
+                <span>⭐</span> <span class="ph" data-field="game1-rating">愛好星級：5/5</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 賽車遊戲 2 -->
+        <div class="project-card">
+          <div class="project-img-box">
+            <img src="assets/images/racing-telemetry.jpg" alt="擬真賽車方向盤" class="project-img">
+            <div class="project-badge-overlay">
+              <span class="badge">Sim Racing</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">Gran Turismo / F1</span>
+              <span class="project-tag">賽道競技</span>
+              <span class="project-tag">單圈挑戰</span>
+              <span class="project-tag">極限走線</span>
+            </div>
+            <h3 class="project-title ph" data-field="game2-title">跑車浪漫旅 (GT) / F1 方程式賽車系列</h3>
+            <p class="project-desc ph" data-field="game2-desc">
+              強調擬真的物理手感、精準的煞車點掌握與輪對輪攻防激戰。每一圈都在挑戰自己的極限反應與輪胎抓地力，非常有成就感！
+            </p>
+            <div class="project-footer">
+              <span class="badge">最愛賽道：紐柏林北環 / 鈴鹿賽道</span>
+              <span class="project-link-btn" style="cursor: default;">
+                <span>⭐</span> <span class="ph" data-field="game2-rating">愛好星級：5/5</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       校園生活與個人嗜好 (Campus Life & Skills)
+       ======================================================================== -->
+  <section class="section-padding-alt" id="campus-life">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge-wrap">
+          <span class="badge">
+            <span>🏫</span> 大學生活軌跡
+          </span>
+        </div>
+        <h2 class="section-title ph" data-field="campus-title">在台南應用科技大學的日常</h2>
+        <p class="section-subtitle ph" data-field="campus-subtitle">
+          [可記錄您的課業學習、社團活動或日常技能，以下欄位皆可隨時修改]
+        </p>
+      </div>
+
+      <div class="skills-layout">
+        <!-- 區塊 1: 課業與專業技能 -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">📚</div>
+            <h3 class="ph" data-field="col-skills-title">學習與專長領域</h3>
+          </div>
+          <div class="skill-tags-group">
+            <span class="skill-tag"><span class="ph" data-field="skill-1">[課堂專業技能 1]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="skill-2">[課堂專業技能 2]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="skill-3">[電腦數位應用]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="skill-4">[簡報溝通與團隊合作]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="skill-5">[點擊可修改更多專長]</span></span>
+          </div>
+        </div>
+
+        <!-- 區塊 2: 興趣與休閒嗜好 -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">🎯</div>
+            <h3 class="ph" data-field="col-hobbies-title">休閒與嗜好愛好</h3>
+          </div>
+          <div class="skill-tags-group">
+            <span class="skill-tag"><span>🏎️ 賽車電競遊戲</span></span>
+            <span class="skill-tag"><span class="ph" data-field="hobby-2">[欣賞車輛改裝與賽事]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="hobby-3">[探索台南在地美食]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="hobby-4">[聽音樂 / 看電影]</span></span>
+            <span class="skill-tag"><span class="ph" data-field="hobby-5">[點擊可新增個人興趣]</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       聯絡方式與社交平台 (Contact & Connect)
+       ======================================================================== -->
+  <section class="section-padding" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge-wrap">
+          <span class="badge badge-racing">
+            <span>🏁</span> CONNECT WITH ME
+          </span>
+        </div>
+        <h2 class="section-title ph" data-field="contact-title">聯絡我 / 一起組隊跑賽道！</h2>
+        <p class="section-subtitle ph" data-field="contact-subtitle">
+          歡迎隨時與萬書維交流認識，或是加遊戲好友一同在賽道較量！
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- 聯絡資訊卡片 -->
+        <div class="contact-info-card">
+          <h3 class="ph" data-field="contact-card-title">萬書維 的通訊方式</h3>
+          <p class="ph" data-field="contact-card-desc">
+            您可以透過以下方式聯繫我，或交換遊戲 ID：
+          </p>
+
+          <div class="contact-methods">
+            <!-- 學校與地點 -->
+            <div class="contact-method-item">
+              <div class="contact-icon">🏫</div>
+              <div>
+                <div class="contact-label">就讀學校</div>
+                <div class="contact-value">台南應用科技大學 (TUT)</div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-method-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <div class="contact-label">電子信箱 (Email)</div>
+                <a href="mailto:shuwei.wan@example.com" class="contact-value ph" data-field="contact-email" id="emailVal">[請填寫您的 Email 信箱]</a>
+              </div>
+              <button type="button" class="copy-btn" id="btnCopyEmailContact" title="複製信箱">
+                <span>📋</span> 複製
+              </button>
+            </div>
+
+            <!-- 遊戲平台 ID -->
+            <div class="contact-method-item">
+              <div class="contact-icon">🎮</div>
+              <div>
+                <div class="contact-label">遊戲連線帳號 (Steam / PSN)</div>
+                <span class="contact-value ph" data-field="contact-gameid">[請填寫您的遊戲 ID 或 Steam 代碼]</span>
+              </div>
+            </div>
+
+            <!-- 社群平台 -->
+            <div class="contact-method-item">
+              <div class="contact-icon">📱</div>
+              <div>
+                <div class="contact-label">Instagram / 社群</div>
+                <span class="contact-value ph" data-field="contact-social">[請填寫您的 IG 或社群帳號]</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-top: 10px;">
+            <button type="button" class="btn btn-primary" style="width: 100%;" onclick="window.print()">
+              <span>🖨️</span> 列印這份自我介紹 (A4 PDF)
+            </button>
+          </div>
+        </div>
+
+        <!-- 留言板互動表單 -->
+        <div class="contact-form-card">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">打個招呼 / 留言給我</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            有任何想說的話或想約跑賽車遊戲，歡迎在下方留言：
+          </p>
+          <form id="contactForm" onsubmit="return false;">
+            <div class="form-group">
+              <label for="formName" class="form-label">您的稱呼 / 朋友暱稱</label>
+              <input type="text" id="formName" class="form-input" placeholder="例如：阿明 / 賽車同好" required>
+            </div>
+            <div class="form-group">
+              <label for="formEmail" class="form-label">聯絡 Email 或社交帳號</label>
+              <input type="text" id="formEmail" class="form-input" placeholder="例如：ming@example.com 或 IG 帳號" required>
+            </div>
+            <div class="form-group">
+              <label for="formMessage" class="form-label">留言內容</label>
+              <textarea id="formMessage" class="form-textarea" placeholder="例如：哈囉書維，我也喜歡玩地平線，要不要加個好友一起跑？" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-racing" style="width: 100%;" id="btnSubmitForm">
+              <span>🚀</span> 送出留言
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       頁尾 (Site Footer)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>© 2026 萬書維 (Wan Shu-Wei) · 台南應用科技大學 · Sim Racer</p>
+        <p style="font-size: 0.775rem; color: var(--text-light); margin-top: 4px;">
+          Personal Introduction Website · Built with Speed & Clean Modern Design
+        </p>
+      </div>
+      <div class="footer-socials">
+        <a href="#hero" class="footer-social-link">回到頂端 ↑</a>
+        <a href="#" class="footer-social-link" onclick="window.print(); return false;">列印 A4</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 提示通知彈窗 (Toast) -->
+  <div class="toast" id="toastBox" role="alert" aria-live="polite">
+    <span id="toastIcon">✅</span>
+    <span id="toastMsg">已成功複製到剪貼簿！</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
